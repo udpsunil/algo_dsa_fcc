@@ -27,5 +27,30 @@ class TestBigOExamples(unittest.TestCase):
         self.assertEqual(self.examples.linear_search([1], 2), -1)
         self.assertEqual(self.examples.linear_search([1], 1), 0)
 
+    def test_merge_sort(self):
+        arr = [12, 11, 13, 5, 6, 7]
+        self.examples.merge_sort(arr, 0, len(arr)-1)
+        self.assertEqual(arr, [5, 6, 7, 11, 12, 13])
+
+        arr = []
+        self.examples.merge_sort(arr, 0, len(arr)-1)
+        self.assertEqual(arr, [])
+
+        arr = [1]
+        self.examples.merge_sort(arr, 0, len(arr)-1)
+        self.assertEqual(arr, [1])
+
+        arr = [5, 4, 3, 2, 1]
+        self.examples.merge_sort(arr, 0, len(arr)-1)
+        self.assertEqual(arr, [1, 2, 3, 4, 5])
+
+        arr = [1, 2, 3, 4, 5]
+        self.examples.merge_sort(arr, 0, len(arr)-1)
+        self.assertEqual(arr, [1, 2, 3, 4, 5])
+
+        arr = [5, 2, 4, 1, 3, 2]
+        self.examples.merge_sort(arr, 0, len(arr)-1)
+        self.assertEqual(arr, [1, 2, 2, 3, 4, 5])
+
 if __name__ == '__main__':
     unittest.main()
