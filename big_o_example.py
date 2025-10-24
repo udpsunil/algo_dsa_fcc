@@ -3,6 +3,7 @@ class BigOExamples:
     def get_first_element(self, arr):
         return arr[0]
 
+    # O(logn)
     def binary_search(self, arr: list[int], target: int) -> int:
         left = 0
         right = len(arr) - 1
@@ -14,4 +15,11 @@ class BigOExamples:
                 left = mid + 1
             else:
                 right = mid - 1
+        return -1
+
+    # O(n)
+    def linear_search(self, arr: list[int], target: int) -> int:
+        for i, element in enumerate(arr):
+            if element == target:
+                return i
         return -1
