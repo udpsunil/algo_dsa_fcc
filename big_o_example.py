@@ -39,6 +39,16 @@ class BigOExamples:
 
     def fib(self, n: int) -> int:
         return n if n <= 1 else self.fib(n-1) + self.fib(n-2)
+    
+    def permute(self, string: str, answer: str):
+        if string == "":
+            print(answer)
+            return 
+        for i in range(len(string)):
+            letter = string[i]
+            rest = string[:i] + string[i+1:]
+            self.permute(rest, answer+letter)
+
 
 
 def merge(arr:list[int], left: int, mid: int, right:int):

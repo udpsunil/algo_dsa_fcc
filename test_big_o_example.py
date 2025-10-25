@@ -94,5 +94,37 @@ class TestBigOExamples(unittest.TestCase):
         # Test negative input - should handle like any other input based on implementation
         self.assertEqual(self.examples.fib(-1), -1)
 
+    def test_permute(self):
+        from io import StringIO
+        from unittest.mock import patch
+
+        # Test empty string
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            self.examples.permute("", "")
+            self.assertEqual(fake_out.getvalue(), "\n")
+
+        # Test single character
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            self.examples.permute("a", "")
+            self.assertEqual(fake_out.getvalue(), "a\n")
+
+        # Test two characters
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            self.examples.permute("ab", "")
+            expected = "ab\nba\n"
+            self.assertEqual(fake_out.getvalue(), expected)
+
+        # Test three characters
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            self.examples.permute("abc", "")
+            expected = "abc\nacb\nbac\nbca\ncab\ncba\n"
+            self.assertEqual(fake_out.getvalue(), expected)
+            
+        # Test with numbers (as strings)
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            self.examples.permute("12", "")
+            expected = "12\n21\n"
+            self.assertEqual(fake_out.getvalue(), expected)
+
 if __name__ == '__main__':
     unittest.main()
