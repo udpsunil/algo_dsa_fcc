@@ -48,6 +48,30 @@ class TestBigOExamples(unittest.TestCase):
         self.examples.merge_sort(arr, 0, len(arr)-1)
         self.assertEqual(arr, [1, 2, 3, 4, 5])
 
+    def test_print_pairs(self):
+        from io import StringIO
+        from unittest.mock import patch
+        
+        # Test with a simple array
+        test_array = [1, 2]
+        expected_output = "1 ,  1\n1 ,  2\n2 ,  1\n2 ,  2\n"
+        
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            self.examples.print_pairs(test_array)
+            self.assertEqual(fake_out.getvalue(), expected_output)
+        
+        # Test with empty array
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            self.examples.print_pairs([])
+            self.assertEqual(fake_out.getvalue(), "")
+        
+        # Test with single element array
+        test_array = [1]
+        expected_output = "1 ,  1\n"
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            self.examples.print_pairs(test_array)
+            self.assertEqual(fake_out.getvalue(), expected_output)
+
         arr = [5, 2, 4, 1, 3, 2]
         self.examples.merge_sort(arr, 0, len(arr)-1)
         self.assertEqual(arr, [1, 2, 2, 3, 4, 5])
