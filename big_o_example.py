@@ -37,6 +37,9 @@ class BigOExamples:
             for another in arr:
                 print(element, ", ", another)
 
+    def fib(self, n: int) -> int:
+        return n if n <= 1 else self.fib(n-1) + self.fib(n-2)
+
 
 def merge(arr:list[int], left: int, mid: int, right:int):
     n1 = mid - left + 1
