@@ -28,7 +28,6 @@ class BigOExamples:
         if left < right:
             mid = (left + right) // 2
             self.merge_sort(arr, left, mid)
-<<<<<<< HEAD
             self.merge_sort(arr, mid + 1, right)
             self.merge(arr, left, mid, right)
 
@@ -37,15 +36,14 @@ class BigOExamples:
         n2 = right - mid
         L = [0] * n1
         R = [0] * n2
-=======
-            self.merge_sort(arr, mid+1, right)
-            merge(arr, left, mid, right)
+
+        self.merge_sort(arr, mid+1, right)
+        merge(arr, left, mid, right)
 
     def print_pairs(self, arr: list[int]):
         for element in arr:
             for another in arr:
                 print(element, ", ", another)
->>>>>>> 5b5da02987a122c8889f261a87cb6afce1896c10
 
     def fib(self, n: int) -> int:
         return n if n <= 1 else self.fib(n-1) + self.fib(n-2)
@@ -81,10 +79,7 @@ def merge(arr:list[int], left: int, mid: int, right:int):
         else:
             arr[k] = R[j]
             j += 1
-<<<<<<< HEAD
             k += 1
-=======
-        k += 1
 
     while i < n1:
         arr[k] = L[i]
@@ -95,5 +90,3 @@ def merge(arr:list[int], left: int, mid: int, right:int):
         arr[k] = R[j]
         j += 1
         k += 1
-
->>>>>>> 5b5da02987a122c8889f261a87cb6afce1896c10
