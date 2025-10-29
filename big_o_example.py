@@ -1,6 +1,6 @@
 class BigOExamples:
     # O(1)
-    def get_first_element(self, arr):
+    def get_first_element(self, arr: list[int]) -> int:
         return arr[0]
 
     # O(logn)
@@ -23,16 +23,15 @@ class BigOExamples:
             if element == target:
                 return i
         return -1
-    
 
     def merge_sort(self, arr: list[int], left: int, right: int):
         if left < right:
             mid = (left + right) // 2
             self.merge_sort(arr, left, mid)
-            self.merge_sort(arr, mid+1, right)
+            self.merge_sort(arr, mid + 1, right)
             self.merge(arr, left, mid, right)
 
-    def merge(self, arr:list[int], left: int, mid: int, right:int):
+    def merge(self, arr: list[int], left: int, mid: int, right: int):
         n1 = mid - left + 1
         n2 = right - mid
         L = [0] * n1
